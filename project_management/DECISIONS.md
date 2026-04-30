@@ -127,6 +127,28 @@ Each entry:
 
 ---
 
+## 2026-04-30 — Sprint 004 removes scaffold-only routes from the published site
+
+**Category:** Scope  
+**Context:** The root portfolio implementation was still publishing `/getting-started/` and `/sticky-slides/`, which were scaffold leftovers rather than intended portfolio routes.  
+**Decision:** Delete the source markdown files for those routes from the root project and treat any future similar pages as explicit spec additions rather than inherited leftovers.  
+**Rationale:** The published route set should match the portfolio product, not the teaching scaffold.  
+**Impact:** Static export is reduced to the intended portfolio routes, and browser tests now assert `404` for the removed routes.  
+**Linked:** Phase 3, Sprint 004
+
+---
+
+## 2026-04-30 — Sprint 004 resolves the broken homepage media reference by simplification
+
+**Category:** Architecture  
+**Context:** The homepage referenced a nonexistent `placeholder.jpg` asset. There was no valid project-owned replacement image ready in the root portfolio.  
+**Decision:** Remove the broken image directive and allow the section to render as a plain content slide for now.  
+**Rationale:** Removing a broken reference is safer than substituting unrelated reference media and keeps the page valid until real portfolio imagery exists.  
+**Impact:** Homepage content remains intact, no missing asset is shipped, and future image additions can be deliberate.  
+**Linked:** Phase 3, Sprint 004
+
+---
+
 ## 2026-04-30 — AI/search integration explicitly out of scope for v1
 
 **Category:** Scope  

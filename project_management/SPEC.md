@@ -1,6 +1,6 @@
 # SPEC — Nuclear Engineering Scrollytelling Portfolio
 
-_Last updated: 2026-04-30 — root repo alignment refresh_
+_Last updated: 2026-04-30 — after Sprint 004 route cleanup_
 
 > `SPEC.md` is the single source of truth for the root `scrollytelling/` project. `framework/` is reference-only and must not be edited.
 
@@ -92,11 +92,7 @@ Visual direction: technical data-lab portfolio.
 | `/contact/` | `content/pages/contact.md` | standard | Contact and availability |
 | `/images/` | `src/app/images/page.tsx` | custom | Asset browser |
 
-### Legacy scaffold routes
-| Route | Current state | Spec status |
-|-------|---------------|-------------|
-| `/getting-started/` | still live | remove or repurpose in a controlled sprint |
-| `/sticky-slides/` | still live | remove or repurpose in a controlled sprint |
+Legacy scaffold routes have been removed from the published portfolio route set.
 
 ---
 
@@ -190,9 +186,9 @@ Rule: do not introduce new major shared components without documenting the need 
 - [x] `SiteHeader` navigation is present.
 - [x] Sticky-slide rendering is wired in the homepage presentation layout.
 - [x] Root project-management docs exist.
-- [ ] Root README reflects the portfolio project rather than the teaching scaffold.
-- [ ] Legacy scaffold routes are removed or intentionally repurposed.
-- [ ] Homepage missing image reference is resolved.
+- [x] Root README reflects the portfolio project rather than the teaching scaffold.
+- [x] Legacy scaffold routes are removed or intentionally repurposed.
+- [x] Homepage missing image reference is resolved.
 - [x] Styling architecture is migrated to CSS Modules + tokenized CSS.
 - [ ] Site is responsive and visually coherent across mobile and desktop.
 - [ ] Deploy pipeline and root git setup are aligned with the target GitHub repository.

@@ -58,7 +58,7 @@ Replace styling drift with a real tokenized CSS foundation.
 
 ---
 
-## Phase 3: Portfolio Hardening and Route Cleanup
+## Phase 3: Portfolio Hardening and Route Cleanup ✅
 
 **Goal**
 Resolve leftover scaffold artifacts and tighten portfolio credibility.
@@ -80,7 +80,7 @@ Resolve leftover scaffold artifacts and tighten portfolio credibility.
 - No broken asset reference remains in portfolio content.
 
 **Risks or unknowns**
-- Removing legacy routes will require coordinated e2e updates.
+- Removing legacy routes requires coordinated e2e updates.
 
 ---
 

@@ -1,78 +1,77 @@
-# CURRENT SPRINT — Sprint 004: Portfolio Hardening and Route Cleanup
+# CURRENT SPRINT — Sprint 005: Content Pipeline Hardening
 
-_Status: READY — promoted after Sprint 003 completion on 2026-04-30_
+_Status: READY — promoted after Sprint 004 completion on 2026-04-30_
 
 ---
 
 ## Goal
 
-Remove the remaining scaffold artifacts and resolve credibility gaps in the published portfolio.
+Tighten the markdown content system so malformed content, slug issues, and asset mistakes are easier to catch before release.
 
 ---
 
 ## Scope
 
-- Remove or repurpose `/getting-started/` and `/sticky-slides/`
-- Resolve the missing homepage image reference
-- Align root README with the portfolio rather than the teaching scaffold
-- Reconcile route count, metadata, and supporting assets with the intended portfolio-only site
+- Add targeted tests for content edge cases
+- Improve content-validation failure clarity where needed
+- Audit image and slug integrity in the markdown source set
+- Keep the static-export contract intact
 
 ---
 
 ## Out of Scope
 
-- New feature work beyond cleanup and alignment
-- Search, AI, or backend features
-- Major animation redesign
-- Deploy pipeline hardening beyond what cleanup work requires
+- New user-facing features
+- Route or content strategy changes unrelated to validation
+- AI/search/backend work
+- Deployment workflow redesign
 
 ---
 
 ## Tasks
 
-- [ ] Decide whether legacy scaffold pages are deleted or repurposed
-- [ ] Update affected content files and route expectations
-- [ ] Replace or remove `/images/media/modules/portraits/placeholder.jpg` reference on the homepage
-- [ ] Update browser tests to match the final route set
-- [ ] Rewrite root README with correct project identity, setup, and repo URL
-- [ ] Update implementation report and changelog to reflect the route cleanup
+- [ ] Add unit tests for malformed frontmatter and missing or invalid slugs where coverage is thin
+- [ ] Review `src/lib/content/repository.ts`, `schema.ts`, and `parser.ts` for failure clarity
+- [ ] Audit markdown image references across `content/`
+- [ ] Document any new content constraints in `SPEC.md` and `IMPLEMENTATION_REPORT.md`
+- [ ] Run full quality gate after hardening changes
 
 ---
 
 ## Files Likely Affected
 
 ```
-content/home.md
-content/pages/getting-started.md
-content/pages/sticky-slides.md
-README.md
-tests/browser/*.spec.ts
+src/lib/content/repository.ts
+src/lib/content/schema.ts
+src/lib/content/parser.ts
+tests/unit/*.test.ts
+content/**/*.md
 project_management/CHANGELOG.md
-project_management/QA_REPORTS/qa-sprint-004.md
+project_management/QA_REPORTS/qa-sprint-005.md
 ```
 
 ---
 
 ## Acceptance Criteria
 
-- [ ] Legacy scaffold routes no longer ship unintentionally
-- [ ] Homepage has no broken image reference
-- [ ] README describes the real portfolio project and root repo URL
-- [ ] Full quality gate passes after cleanup
+- [ ] Content validation failures are clearer and test-covered
+- [ ] Markdown asset and slug issues are documented or fixed
+- [ ] Full quality gate passes
 
 ---
 
 ## Testing / QA Steps
 
-1. Run the full quality gate.
-2. Confirm exported routes match the intended portfolio route set.
-3. Manually verify homepage media renders correctly.
-4. Manually verify removed or repurposed routes behave as intended.
+1. Run `npm run lint`.
+2. Run `npm run test`.
+3. Run `npm run build`.
+4. Run `npm run test:e2e`.
+5. Intentionally validate at least one malformed content case during development.
 
 ---
 
 ## Drift Check
 
-- Follows `PHASES.md` Phase 3.
-- Resolves documented drift already present in `IMPLEMENTATION_REPORT.md`.
-- Does not expand product scope; it tightens the existing portfolio implementation.
+- Follows `PHASES.md` Phase 4.
+- Tightens the existing content system without changing portfolio direction.
+- Depends on Sprint 004 resolving the known route and asset drift first.

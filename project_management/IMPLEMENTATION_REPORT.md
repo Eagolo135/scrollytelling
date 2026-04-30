@@ -1,6 +1,6 @@
 # Implementation Report
 
-_Last updated: 2026-04-30 — after Sprint 003 UI Foundation_
+_Last updated: 2026-04-30 — after Sprint 004 route cleanup_
 
 ---
 
@@ -39,7 +39,7 @@ The sibling `framework/` directory is reference material only and is off-limits 
 src/app/
   layout.tsx              root html shell and metadata
   page.tsx                homepage from content/home.md
-  globals.css             minimal globals + Tailwind import
+  globals.css             root design tokens and base styles
   [...slug]/page.tsx      statically-generated markdown pages
   images/page.tsx         image library browser
 ```
@@ -47,7 +47,7 @@ src/app/
 ### Root layout
 - Uses Geist Sans and Geist Mono via `next/font/google`.
 - Site metadata already reflects the portfolio identity: `Nuclear Engineering Portfolio`.
-- Still relies on Tailwind utility classes directly on `<html>` and `<body>`.
+- Root shell no longer relies on Tailwind utilities.
 
 ### Home route
 - Loads `content/home.md` via `getHomeRepo().getPageBySlug("home")`.
@@ -57,7 +57,7 @@ src/app/
 ### Dynamic route
 - `dynamicParams = false`.
 - `generateStaticParams()` enumerates `content/pages/*.md`.
-- Current generated content includes both portfolio pages and leftover scaffold pages.
+- Current generated content is limited to the portfolio support pages.
 
 ---
 
@@ -73,16 +73,10 @@ src/app/
 | `/contact` | `content/pages/contact.md` | implemented |
 | `/images` | `src/app/images/page.tsx` | utility asset browser |
 
-### Legacy scaffold routes still present
-| Route | Source file | Status |
-|------|-------------|--------|
-| `/getting-started` | `content/pages/getting-started.md` | still published |
-| `/sticky-slides` | `content/pages/sticky-slides.md` | still published |
-
 ### Content observations
 - Homepage content is already converted to a 5-slide portfolio narrative.
 - Supporting portfolio pages exist and are linked from the global header.
-- Homepage references `/images/media/modules/portraits/placeholder.jpg`, but that asset does not exist in `public/`.
+- The previously broken homepage image reference has been removed.
 
 ---
 
@@ -137,19 +131,19 @@ PageData
 
 ### StandardLayout
 - Uses `SiteHeader` plus a centered article body.
-- Styling is still Tailwind utility class based.
-- Uses an inline `paddingTop` to compensate for the fixed header.
+- Styling is module-based and tokenized.
+- Maintains top spacing for the fixed header via CSS Modules.
 
 ### PresentationLayout
 - Already upgraded to real sticky-stage scrollytelling.
 - Uses `splitMarkdownIntoSlides()` and wraps each slide in `PresentationSlide`.
 - Supports `bg`, `split`, `split-reverse`, and `plain` slide render paths.
-- Layout styling is entirely inline rather than tokenized or module-based.
+- Layout styling is now primarily module-based and tokenized.
 
 ### MarkdownRenderer
 - Custom lightweight markdown renderer, not MDX.
 - Handles headings, paragraphs, lists, inline links, and fenced visualization blocks.
-- Still uses Tailwind `prose` classes and utility classes directly.
+- Uses CSS Module prose styling instead of Tailwind utility classes.
 
 ---
 
@@ -179,7 +173,7 @@ All are routed from fenced blocks in `MarkdownRenderer`:
 | `code-sample` | `CodeSample` |
 | `scroll-demo` | `ScrollDemo` |
 
-Current styling for these components remains Tailwind utility based.
+Active visualization styling is now CSS Module based.
 
 ---
 
@@ -192,8 +186,8 @@ Current styling for these components remains Tailwind utility based.
 - Root lint config ignores `framework/` so the reference scaffold stays outside the active project QA surface.
 
 ### Remaining styling follow-up
-- Styling migration is complete for the active portfolio surface, but visual polish and route cleanup still remain for later sprints.
-- README still overstates the old styling story from the scaffold context.
+- Styling migration is complete for the active portfolio surface.
+- Visual polish and broader responsiveness tuning remain for later sprints.
 
 ---
 
@@ -204,8 +198,8 @@ Current styling for these components remains Tailwind utility based.
 - Coverage focuses on parser, schema, repository, and link contracts.
 
 ### Browser tests
-- 11 tests passing.
-- Assertions cover homepage rendering, navigation visibility, supporting route H1s, presentation rendering, and reduced-motion rendering.
+- 13 tests passing.
+- Assertions cover homepage rendering, navigation visibility, supporting route H1s, presentation rendering, reduced-motion rendering, and `404` coverage for removed scaffold routes.
 
 ### Verified current commands
 - `npm run lint` ✅
@@ -222,23 +216,20 @@ Current styling for these components remains Tailwind utility based.
 - `.github/workflows/deploy.yml` exists for GitHub Pages deployment.
 
 ### Operational gaps
-- Root README still documents the original teaching scaffold rather than the portfolio app.
 - Deploy workflow hardening beyond the existing Pages setup is still pending.
 
 ---
 
 ## Main Drift Findings
 
-1. Legacy scaffold routes are still live in production output.
-2. Homepage references a missing image asset.
-3. Root README still describes the scaffold instead of the shipped portfolio app.
+1. Deploy workflow hardening beyond the existing Pages setup is still pending.
+2. Content pipeline hardening for malformed markdown and asset validation is still pending.
 
 ---
 
 ## Recommended Active Sprint
 
-Sprint 004 should focus on route and repo hardening:
-- remove or repurpose legacy scaffold routes
-- resolve the broken homepage image reference
-- rewrite the root README
-- keep the current route behavior covered by tests
+Sprint 005 should focus on content pipeline hardening:
+- improve validation failure clarity
+- expand unit coverage for malformed content cases
+- audit content asset and slug integrity

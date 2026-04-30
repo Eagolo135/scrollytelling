@@ -13,8 +13,6 @@ I build safer, more efficient reactor systems — from neutronics modeling and t
 
 ---
 
-![bg 50% 40%](/images/media/modules/portraits/placeholder.jpg)
-
 ## From First Principles to Full Systems
 
 My work spans the full nuclear engineering stack: neutron transport calculation, reactor thermal design, shielding analysis, and regulatory-grade safety cases. I apply rigorous computational methods to real-world engineering challenges.

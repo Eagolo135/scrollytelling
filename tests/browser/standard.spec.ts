@@ -19,3 +19,13 @@ test("contact page loads", async ({ page }) => {
   await page.goto("/contact/");
   await expect(page.getByRole("heading", { level: 1 }).first()).toHaveText("Contact");
 });
+
+test("legacy getting-started route is no longer published", async ({ page }) => {
+  const response = await page.goto("/getting-started/");
+  expect(response?.status()).toBe(404);
+});
+
+test("legacy sticky-slides route is no longer published", async ({ page }) => {
+  const response = await page.goto("/sticky-slides/");
+  expect(response?.status()).toBe(404);
+});

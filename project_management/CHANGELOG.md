@@ -103,4 +103,27 @@ _Format: `## [YYYY-MM-DD] — Sprint N — Description`_
 
 ---
 
-_Next planned sprint: Sprint 004 — Portfolio Hardening and Route Cleanup_
+## [2026-04-30] — Sprint 004 — Portfolio Hardening and Route Cleanup
+
+### Changed
+- `content/home.md` — removed the broken `placeholder.jpg` image directive so the affected slide renders as valid content.
+- `README.md` — rewritten to describe the actual nuclear engineering portfolio app, repo, workflow, and structure.
+- `tests/browser/standard.spec.ts` — added coverage confirming `/getting-started/` and `/sticky-slides/` now return `404`.
+- `project_management/IMPLEMENTATION_REPORT.md` — updated to the new 9-route state.
+- `project_management/SPEC.md` — updated to reflect the cleaned route set and resolved asset/README drift.
+- `project_management/PHASES.md` — Phase 3 marked complete.
+
+### Removed
+- `content/pages/getting-started.md`
+- `content/pages/sticky-slides.md`
+
+### Added
+- `project_management/QA_REPORTS/qa-sprint-004.md` — Sprint 004 QA report.
+- `project_management/COMPLETED_SPRINTS/sprint-004-portfolio-hardening-and-route-cleanup.md` — Sprint 004 archive.
+
+### Quality Gate
+`lint ✅  ·  unit 7/7 ✅  ·  build 9 routes ✅  ·  e2e 13/13 ✅`
+
+---
+
+_Next planned sprint: Sprint 005 — Content Pipeline Hardening_
