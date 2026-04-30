@@ -126,4 +126,42 @@ _Format: `## [YYYY-MM-DD] — Sprint N — Description`_
 
 ---
 
-_Next planned sprint: Sprint 005 — Content Pipeline Hardening_
+## [2026-04-30] — Sprint 005 — Content Pipeline Hardening
+
+### Added
+- `tests/unit/content-assets.test.ts` — validates markdown `/images/...` references point to existing files under `public/`.
+- `project_management/QA_REPORTS/qa-sprint-005.md` — Sprint 005 QA report.
+- `project_management/COMPLETED_SPRINTS/sprint-005-content-pipeline-hardening.md` — Sprint 005 archive.
+
+### Changed
+- `src/lib/content/repository.ts` — improved error clarity for missing markdown files and malformed frontmatter; added deterministic slug sorting.
+- `tests/unit/repository.test.ts` — expanded coverage for malformed frontmatter, missing files, and slug filtering/sorting behavior.
+- `project_management/IMPLEMENTATION_REPORT.md` — updated testing baseline and drift state after content hardening.
+- `project_management/SPEC.md` — marked content-validation hardening as complete in definition of done.
+- `project_management/PHASES.md` — marked Phase 4 complete.
+
+### Quality Gate
+`lint ✅  ·  unit 12/12 ✅  ·  build 9 routes ✅  ·  e2e 13/13 ✅`
+
+---
+
+## [2026-04-30] — Sprint 006 — Polish, Responsiveness, and Deployment Readiness
+
+### Added
+- Browser coverage for mobile navigation usability on the homepage (`tests/browser/homepage.spec.ts`).
+- Browser coverage for keyboard-tab traversal across core global navigation links (`tests/browser/homepage.spec.ts`).
+- `project_management/QA_REPORTS/qa-sprint-006.md` — Sprint 006 QA report.
+- `project_management/COMPLETED_SPRINTS/sprint-006-polish-responsiveness-and-deployment-readiness.md` — Sprint 006 archive.
+
+### Changed
+- `src/components/ui/SiteHeader.module.css` — improved visible focus states and stabilized mobile nav behavior with horizontal overflow handling.
+- `src/components/layouts/PresentationLayout.module.css` — improved mobile slide readability spacing and content alignment.
+- `README.md` — updated status to reflect Sprint 005 completion and active Sprint 006 focus.
+- `project_management/PHASES.md` — marked Phase 7 complete.
+
+### Quality Gate
+`lint ✅  ·  unit 12/12 ✅  ·  build 9 routes ✅  ·  e2e 15/15 ✅`
+
+---
+
+_Next planned sprint: Sprint 007 — Release Verification and Publish Confidence_

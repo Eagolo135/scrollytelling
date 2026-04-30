@@ -3,6 +3,8 @@ import path from "node:path";
 import matter from "gray-matter";
 import { PageFrontmatterSchema, type PageFrontmatter } from "./schema";
 
+const KEBAB_CASE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+
 export interface PageData {
   slug: string;
   frontmatter: PageFrontmatter;
@@ -22,18 +24,33 @@ export class ContentRepository {
   constructor(private readonly baseDir: string) {}
 
   async getPageBySlug(slug: string): Promise<PageData> {
-    if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) {
+    if (!KEBAB_CASE.test(slug)) {
       throw new ContentValidationError(path.join(this.baseDir, `${slug}.md`), ["slug: must be kebab-case"]);
     }
 
     const filePath = path.join(this.baseDir, `${slug}.md`);
-    const source = await fs.readFile(filePath, "utf8");
-    const parsed = matter(source);
+    let source: string;
+    try {
+      source = await fs.readFile(filePath, "utf8");
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException).code === "ENOENT") {
+        throw new ContentValidationError(filePath, ["file: markdown file not found"]);
+      }
+      throw error;
+    }
+
+    let parsed: matter.GrayMatterFile<string>;
+    try {
+      parsed = matter(source);
+    } catch (error) {
+      throw new ContentValidationError(filePath, [`frontmatter: ${(error as Error).message}`]);
+    }
+
     const result = PageFrontmatterSchema.safeParse(parsed.data);
     if (!result.success) {
       throw new ContentValidationError(
         filePath,
-        result.error.issues.map((issue) => `${issue.path.join(".")}: ${issue.message}`),
+        result.error.issues.map((issue) => `${issue.path.length ? issue.path.join(".") : "frontmatter"}: ${issue.message}`),
       );
     }
     return { slug, frontmatter: result.data, content: parsed.content };
@@ -44,7 +61,8 @@ export class ContentRepository {
     return files
       .filter((file) => file.endsWith(".md"))
       .map((file) => file.replace(/\.md$/, ""))
-      .filter((slug) => /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug));
+      .filter((slug) => KEBAB_CASE.test(slug))
+      .sort((a, b) => a.localeCompare(b));
   }
 
   async getAllPages(): Promise<PageData[]> {

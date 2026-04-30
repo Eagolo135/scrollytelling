@@ -23,6 +23,12 @@
   white-space: nowrap;
 }
 
+.logo:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+  border-radius: 0.35rem;
+}
+
 .nav {
   margin-left: auto;
 }
@@ -50,20 +56,30 @@
   color: var(--color-text);
 }
 
+.link:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 0.25rem;
+}
+
 @media (max-width: 720px) {
   .header {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     padding-inline: var(--space-5);
+    gap: var(--space-4);
   }
 
   .nav {
-    width: 100%;
+    flex: 1;
     margin-left: 0;
+    overflow-x: auto;
+    scrollbar-width: thin;
   }
 
   .list {
-    justify-content: space-between;
+    justify-content: flex-end;
     gap: var(--space-4);
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    min-width: max-content;
   }
 }

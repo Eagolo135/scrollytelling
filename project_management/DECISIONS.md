@@ -157,3 +157,47 @@ Each entry:
 **Rationale:** Keeps v1 deliverable focused, testable, and statically deployable.  
 **Impact:** No AI/search code should be added in Phases 1–4 or 7–8 without a new decision entry.  
 **Linked:** Phase 5 (conditional)
+
+---
+
+## 2026-04-30 — Sprint 005 standardizes repository failure clarity
+
+**Category:** Architecture  
+**Context:** Content loading failures were technically detectable, but error details for missing files and malformed frontmatter were inconsistent and harder to diagnose quickly.  
+**Decision:** Normalize repository failure paths to return explicit `ContentValidationError` details for missing markdown files and malformed frontmatter parsing failures.  
+**Rationale:** Clearer failure messages reduce debugging time and improve confidence when content changes are introduced.  
+**Impact:** `src/lib/content/repository.ts` now reports consistent issue paths/messages for these error classes, and unit tests assert these behaviors.  
+**Linked:** Phase 4, Sprint 005
+
+---
+
+## 2026-04-30 — Sprint 005 adds automated markdown asset integrity checks
+
+**Category:** Process  
+**Context:** Homepage and supporting markdown can reference `/images/...` assets that may drift from `public/` over time.  
+**Decision:** Add a dedicated unit test that scans markdown content for `/images/...` references and verifies each referenced file exists.  
+**Rationale:** This prevents shipping broken media references and turns a recurring manual check into a repeatable automated guardrail.  
+**Impact:** `tests/unit/content-assets.test.ts` is now part of the quality gate and catches broken asset references early.  
+**Linked:** Phase 4, Sprint 005
+
+---
+
+## 2026-04-30 — Sprint 006 adds explicit keyboard-navigation regression coverage
+
+**Category:** Process  
+**Context:** Browser checks covered route/content rendering and reduced motion, but did not explicitly assert keyboard tab flow through the global nav.  
+**Decision:** Add Playwright assertions for tab-based focus order across the primary header links on the homepage.  
+**Rationale:** This creates a stable accessibility guardrail for a critical interaction path and catches future focus regressions quickly.  
+**Impact:** `tests/browser/homepage.spec.ts` now includes keyboard-navigation coverage and is part of the standard quality gate.  
+**Linked:** Phase 7, Sprint 006
+
+---
+
+## 2026-04-30 — Sprint 006 stabilizes mobile nav interaction with overflow handling
+
+**Category:** Architecture  
+**Context:** Header link layout on narrow screens could become cramped and less predictable when relying on wrap-heavy behavior.  
+**Decision:** Keep mobile nav on a stable single row with horizontal overflow support and preserve focus visibility for keyboard users.  
+**Rationale:** This favors predictable interaction and readability while preserving access to all top-level routes.  
+**Impact:** `src/components/ui/SiteHeader.module.css` now uses no-wrap mobile nav behavior, overflow handling, and explicit focus-visible outlines.  
+**Linked:** Phase 7, Sprint 006

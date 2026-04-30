@@ -115,10 +115,12 @@
 	}
 
 	.contentShell {
-		width: min(100% - 2.5rem, 52rem);
+		width: min(100% - 2rem, 52rem);
 	}
 
 	.plain {
 		padding-inline: var(--space-5);
+		padding-block: var(--space-16) var(--space-10);
+		align-items: flex-start;
 	}
 }

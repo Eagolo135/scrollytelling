@@ -1,6 +1,6 @@
 # Implementation Report
 
-_Last updated: 2026-04-30 — after Sprint 004 route cleanup_
+_Last updated: 2026-04-30 — after Sprint 006 polish and responsiveness pass_
 
 ---
 
@@ -88,6 +88,8 @@ src/app/
 - Validates slugs as kebab-case.
 - Parses frontmatter with gray-matter.
 - Validates metadata with Zod before returning `PageData`.
+- Returns clearer `ContentValidationError` details for missing markdown files and malformed frontmatter.
+- Returns sorted slug lists for deterministic route generation and test behavior.
 
 ### Frontmatter schema
 `src/lib/content/schema.ts`
@@ -194,12 +196,12 @@ Active visualization styling is now CSS Module based.
 ## Testing and Quality State
 
 ### Unit tests
-- 7 tests passing in 5 files.
-- Coverage focuses on parser, schema, repository, and link contracts.
+- 12 tests passing in 6 files.
+- Coverage includes malformed frontmatter, missing-file handling, deterministic slug filtering/sorting, parser/schema/link contracts, and markdown asset existence checks.
 
 ### Browser tests
-- 13 tests passing.
-- Assertions cover homepage rendering, navigation visibility, supporting route H1s, presentation rendering, reduced-motion rendering, and `404` coverage for removed scaffold routes.
+- 15 tests passing.
+- Assertions cover homepage rendering, navigation visibility, mobile navigation usability, keyboard tab flow across header links, supporting route H1s, presentation rendering, reduced-motion rendering, and `404` coverage for removed scaffold routes.
 
 ### Verified current commands
 - `npm run lint` ✅
@@ -222,14 +224,14 @@ Active visualization styling is now CSS Module based.
 
 ## Main Drift Findings
 
-1. Deploy workflow hardening beyond the existing Pages setup is still pending.
-2. Content pipeline hardening for malformed markdown and asset validation is still pending.
+1. Deploy workflow hardening beyond the existing Pages setup is still pending final release verification.
+2. BasePath-focused publish verification still needs an explicit release confidence pass.
 
 ---
 
 ## Recommended Active Sprint
 
-Sprint 005 should focus on content pipeline hardening:
-- improve validation failure clarity
-- expand unit coverage for malformed content cases
-- audit content asset and slug integrity
+Sprint 007 should focus on release verification and publish confidence:
+- validate Pages/basePath assumptions end-to-end
+- verify route and asset behavior under production-like paths
+- capture final release QA evidence and operational notes

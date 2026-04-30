@@ -69,6 +69,10 @@ scrollytelling/
 
 The site is configured for static export in `next.config.ts` and is intended to be deployed to GitHub Pages. The deploy workflow lives in `.github/workflows/deploy.yml`.
 
+- GitHub Actions sets `NEXT_PUBLIC_BASE_PATH` from `actions/configure-pages`.
+- `next build` emits static output to `out/` for Pages artifact upload.
+- Internal links and image URLs should stay root-relative so basePath rewriting remains predictable.
+
 ## Current status
 
-Sprint 003 (UI Foundation) is complete. Sprint 004 is focused on hardening the published portfolio by cleaning up scaffold leftovers and aligning repo-facing documentation.
+Sprint 005 (Content Pipeline Hardening) is complete. Sprint 006 is focused on UI polish, responsiveness, accessibility checks, and deployment-readiness verification.

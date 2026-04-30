@@ -1,6 +1,6 @@
 # SPEC — Nuclear Engineering Scrollytelling Portfolio
 
-_Last updated: 2026-04-30 — after Sprint 004 route cleanup_
+_Last updated: 2026-04-30 — after Sprint 006 polish and responsiveness pass_
 
 > `SPEC.md` is the single source of truth for the root `scrollytelling/` project. `framework/` is reference-only and must not be edited.
 
@@ -190,7 +190,9 @@ Rule: do not introduce new major shared components without documenting the need 
 - [x] Legacy scaffold routes are removed or intentionally repurposed.
 - [x] Homepage missing image reference is resolved.
 - [x] Styling architecture is migrated to CSS Modules + tokenized CSS.
-- [ ] Site is responsive and visually coherent across mobile and desktop.
+- [x] Content validation failures are clearer and covered by targeted unit tests.
+- [x] Site is responsive and visually coherent across mobile and desktop.
+- [x] Reduced-motion and core keyboard navigation behavior are covered by browser checks.
 - [ ] Deploy pipeline and root git setup are aligned with the target GitHub repository.
 - [x] `npm run lint` passes.
 - [x] `npm run test` passes.

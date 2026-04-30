@@ -1,40 +1,40 @@
-# NEXT SPRINT — Sprint 006: Polish, Responsiveness, and Deployment Readiness
+# NEXT SPRINT — Sprint 008: Post-Release Stabilization and Backlog Grooming
 
-_Planned start: after Sprint 005 completes_
+_Planned start: after Sprint 007 completes_
 
 ---
 
 ## Goal
 
-Raise the production quality of the published portfolio with a focused polish, responsiveness, and release-readiness pass.
+Consolidate lessons from release verification, document stable operating practices, and prioritize the next cycle without widening scope.
 
 ---
 
 ## Scope
 
-- Review homepage and supporting pages at mobile and desktop breakpoints
-- Tune presentation-page readability and spacing where needed
-- Audit reduced-motion and keyboard interaction behavior
-- Harden release-facing docs and deployment confidence
+- Triage any issues discovered during release verification
+- Capture maintenance runbooks for routine content and QA updates
+- Groom backlog options against v1 constraints
+- Preserve a stable baseline before any conditional phase expansion
 
 ---
 
 ## Out of Scope
 
-- New portfolio features or route additions
-- Search, AI, or backend features
-- Content model redesign
-- Large component architecture changes
+- New feature launches
+- Route architecture changes
+- Styling-system rewrites
+- AI/search/backend implementation
 
 ---
 
 ## Tasks
 
-- [ ] Review homepage, projects, research, credentials, and contact on mobile and desktop
-- [ ] Tune slide spacing, text contrast, and section rhythm where needed
-- [ ] Audit reduced-motion behavior and keyboard interaction expectations
-- [ ] Review deploy workflow and release-facing docs for production readiness
-- [ ] Run full quality gate after polish changes
+- [ ] Triage and resolve any release-verification findings
+- [ ] Create a concise maintenance checklist for content updates
+- [ ] Review and prioritize roadmap candidates for the next implementation cycle
+- [ ] Update project-management docs to reflect the stabilized baseline
+- [ ] Run full quality gate after stabilization updates
 
 ---
 
@@ -44,20 +44,21 @@ Raise the production quality of the published portfolio with a focused polish, r
 src/components/layouts/*
 src/components/motion/*
 src/app/*
+next.config.ts
 README.md
 .github/workflows/deploy.yml
 tests/browser/*.spec.ts
 project_management/CHANGELOG.md
-project_management/QA_REPORTS/qa-sprint-006.md
+project_management/QA_REPORTS/qa-sprint-008.md
 ```
 
 ---
 
 ## Acceptance Criteria
 
-- [ ] Portfolio is visually coherent across mobile and desktop
-- [ ] Reduced-motion and core keyboard interactions behave acceptably
-- [ ] Release-facing docs and deploy workflow are aligned
+- [ ] Stabilization findings are either fixed or explicitly documented
+- [ ] Maintenance runbook is present and accurate
+- [ ] Backlog priorities are documented without scope expansion
 - [ ] Full quality gate passes
 
 ---
@@ -65,14 +66,14 @@ project_management/QA_REPORTS/qa-sprint-006.md
 ## Testing / QA Steps
 
 1. Run the full quality gate.
-2. Manually review the key routes at desktop and mobile sizes.
-3. Verify reduced-motion behavior on homepage and standard pages.
-4. Verify release docs and deployment settings before shipping.
+2. Re-check critical routes and markdown content update flow.
+3. Confirm maintenance checklist accuracy by dry-running one update scenario.
+4. Record stabilization QA outcomes in `project_management/QA_REPORTS/`.
 
 ---
 
 ## Drift Check
 
-- Follows `PHASES.md` Phase 7 and the release-hardening goals in Phase 8.
-- Depends on Sprint 005 completing content-pipeline hardening first.
-- Does not expand product scope beyond polishing the existing portfolio app.
+- Follows `PHASES.md` Phase 8 operational hardening goals.
+- Depends on Sprint 007 completing release verification first.
+- Keeps the project in a stable, portfolio-focused scope envelope.

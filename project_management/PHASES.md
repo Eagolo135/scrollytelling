@@ -84,7 +84,7 @@ Resolve leftover scaffold artifacts and tighten portfolio credibility.
 
 ---
 
-## Phase 4: Content Pipeline Hardening
+## Phase 4: Content Pipeline Hardening ✅
 
 **Goal**
 Improve content-system resilience and error clarity.
@@ -101,6 +101,7 @@ Improve content-system resilience and error clarity.
 
 **Completion criteria**
 - Content failures are explicit and test-covered.
+- Markdown image references are guarded by automated validation.
 
 **Risks or unknowns**
 - Current lightweight renderer may need careful extension to avoid breaking existing content.
@@ -149,7 +150,7 @@ Add archival or historical storytelling only if it materially improves the portf
 
 ---
 
-## Phase 7: Polish, Animation, and Responsiveness
+## Phase 7: Polish, Animation, and Responsiveness ✅
 
 **Goal**
 Raise UX quality after the styling foundation and route cleanup are stable.
@@ -168,6 +169,7 @@ Raise UX quality after the styling foundation and route cleanup are stable.
 
 **Completion criteria**
 - Mobile and reduced-motion experiences are intentionally designed rather than incidental.
+- Keyboard navigation coverage exists for the global navigation path.
 
 **Risks or unknowns**
 - Sticky presentation behavior can regress on smaller screens if not tested explicitly.
