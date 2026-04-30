@@ -1,0 +1,16 @@
+.pre {
+  overflow-x: auto;
+  margin: 0;
+  border: 1px solid var(--color-viz-border);
+  background: var(--color-code-surface);
+  color: var(--color-code-text);
+  border-radius: var(--radius-xl);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-soft);
+}
+
+.code {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  line-height: var(--leading-copy);
+}

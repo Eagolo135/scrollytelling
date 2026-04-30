@@ -1,0 +1,23 @@
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 var(--space-4);
+  border-left: 2px solid var(--color-viz-border);
+}
+
+.event + .event {
+  margin-top: var(--space-4);
+}
+
+.time {
+  color: var(--color-viz-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+}
+
+.label {
+  color: var(--color-viz-strong);
+  line-height: var(--leading-copy);
+}
