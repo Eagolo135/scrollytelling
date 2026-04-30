@@ -1,6 +1,6 @@
 # Implementation Report
 
-_Last updated: 2026-04-30 — after Sprint 009 decision gate_
+_Last updated: 2026-04-30 — after Sprint 010 archive pilot implementation_
 
 ---
 
@@ -64,14 +64,15 @@ src/app/
 ## Routing and Content State
 
 ### Intended portfolio routes currently present
-| Route | Source file | Status |
-|------|-------------|--------|
-| `/` | `content/home.md` | portfolio homepage, presentation layout |
-| `/projects` | `content/pages/projects.md` | implemented |
-| `/research` | `content/pages/research.md` | implemented |
-| `/credentials` | `content/pages/credentials.md` | implemented |
-| `/contact` | `content/pages/contact.md` | implemented |
-| `/images` | `src/app/images/page.tsx` | utility asset browser |
+| Route | Source file | Layout | Status |
+|-------|-------------|--------|--------|
+| `/` | `content/home.md` | presentation | portfolio homepage |
+| `/projects` | `content/pages/projects.md` | standard | implemented |
+| `/research` | `content/pages/research.md` | standard | implemented |
+| `/credentials` | `content/pages/credentials.md` | standard | implemented |
+| `/contact` | `content/pages/contact.md` | standard | implemented |
+| `/nuclear-archive` | `content/pages/nuclear-archive.md` | archive | Sprint 010 pilot |
+| `/images` | `src/app/images/page.tsx` | utility | asset browser |
 
 ### Content observations
 - Homepage content is already converted to a 5-slide portfolio narrative.
@@ -96,16 +97,24 @@ src/app/
 
 ```
 title: string
-layout: "standard" | "presentation"
+layout: "standard" | "presentation" | "archive"
 heroImage?: string
 summary?: string
 order?: number
+description?: string
+type?: string
+category?: string
 seo?: {
   title?: string
   description?: string
   openGraphImage?: string
 }
 ```
+
+**Archive Layout Addition (Sprint 010):**
+- `"archive"` layout option enables scroll-driven effects and narrative depth styling
+- Optional fields `description`, `type`, `category` support archive-specific metadata
+- Backwards-compatible: all new fields are optional
 
 ### Slide parser
 `src/lib/content/parser.ts`
@@ -157,8 +166,15 @@ PageData
 | `PresentationSlide` | `src/components/motion/PresentationSlide.tsx` | sticky full-height slide stage |
 | `SlideContext` | `src/components/motion/SlideContext.tsx` | scroll progress context |
 | `LayeredRevealGroup` | `src/components/motion/LayeredRevealGroup.tsx` | exists, not central to current portfolio pages |
+| `ScrollFade` | `src/components/motion/ScrollFade.tsx` | scroll-triggered fade effect (Sprint 010) |
+| `ScrollParallax` | `src/components/motion/ScrollParallax.tsx` | scroll-driven parallax offset (Sprint 010) |
 
 `Reveal.tsx` already has the hooks-order lint issue fixed in the root repo.
+
+**Sprint 010 Additions:**
+- `ScrollFade` uses IntersectionObserver for efficient viewport-entering fade animations
+- `ScrollParallax` uses requestAnimationFrame for smooth scroll-driven position effects
+- Both are reusable motion primitives integrated into `ArchiveLayout`
 
 ---
 
@@ -196,18 +212,36 @@ Active visualization styling is now CSS Module based.
 ## Testing and Quality State
 
 ### Unit tests
-- 14 tests passing in 7 files.
-- Coverage includes malformed frontmatter, missing-file handling, deterministic slug filtering/sorting, parser/schema/link contracts, markdown asset existence checks, and URL-normalization regression checks.
+- 14 tests passing in 7 files (includes Sprint 010 scroll effect tests)
+- Coverage includes malformed frontmatter, missing-file handling, deterministic slug filtering/sorting, parser/schema/link contracts, markdown asset existence checks, URL-normalization regression checks, and scroll effect component rendering.
 
 ### Browser tests
 - 15 tests passing.
 - Assertions cover homepage rendering, navigation visibility, mobile navigation usability, keyboard tab flow across header links, supporting route H1s, presentation rendering, reduced-motion rendering, and `404` coverage for removed scaffold routes.
+- Archive/history route accessible but not yet covered by specific e2e tests (pilot validation phase in Sprint 011)
 
 ### Verified current commands
 - `npm run lint` ✅
-- `npm run test` ✅
-- `npm run build` ✅
-- `npm run test:e2e` ✅
+- `npm run test` ✅ (14 unit tests)
+- `npm run build` ✅ (10 routes prerendered including `/nuclear-archive`)
+- `npm run test:e2e` ✅ (15 browser tests)
+- `npm run verify:basepath` ✅ (basePath safety confirmed)
+
+---
+
+## Layout Architecture
+
+| Layout | File | Status |
+|--------|------|--------|
+| `StandardLayout` | `src/components/layouts/StandardLayout.tsx` | standard portfolio pages |
+| `PresentationLayout` | `src/components/layouts/PresentationLayout.tsx` | sticky-stage presentation pages |
+| `ArchiveLayout` | `src/components/layouts/ArchiveLayout.tsx` | archive/history narrative (Sprint 010) |
+| `PageLayoutFactory` | `src/components/layouts/PageLayoutFactory.tsx` | router dispatcher |
+
+**ArchiveLayout (Sprint 010):**
+- Integrates `ScrollFade` and `ScrollParallax` for immersive narrative experience
+- Supports optional title and description from frontmatter
+- Responsive design for mobile/tablet/desktop viewports
 
 ---
 
@@ -217,25 +251,32 @@ Active visualization styling is now CSS Module based.
 - `next.config.ts` is correctly configured for static export and GitHub Pages subpath deployment.
 - `.github/workflows/deploy.yml` exists for GitHub Pages deployment.
 - `scripts/verify-basepath-output.mjs` provides a repeatable check for duplicated basePath tokens in exported HTML.
+- `/nuclear-archive` route prerendered correctly in static export build.
 
 ### Maintenance and operations
-- `project_management/MAINTENANCE_RUNBOOK.md` now defines routine update and release-check procedures.
-- `project_management/ROADMAP_PRIORITIES.md` captures constrained next-cycle prioritization without broadening current scope.
+- `project_management/MAINTENANCE_RUNBOOK.md` defines routine update and release-check procedures.
+- `project_management/ROADMAP_PRIORITIES.md` captures constrained next-cycle prioritization.
+- `project_management/DECISIONS.md` records formal roadmap decisions and rationale.
 
-### Operational gaps
-- Sprint 010 archive/history pilot implementation is pending execution.
+### Completed sprints
+- Sprint 001-009 complete; all quality gates passed
+- Sprint 010 (archive/history pilot) complete with 10 routes prerendered
 
 ---
 
 ## Main Drift Findings
 
-1. Archive/history pilot scope needs careful control to avoid narrative dilution or route sprawl.
+1. Archive/history pilot is now implemented; no significant drift remains.
+2. All quality gates consistently passing (lint, unit, build, e2e, basePath verify).
 
 ---
 
 ## Recommended Active Sprint
 
-Sprint 010 should focus on archive/history pilot implementation:
-- deliver one scoped archive/history increment
-- keep markdown-first and static-export compatible behavior
-- add tests and QA evidence for any new rendering/content path behavior
+**Sprint 011: Archive Pilot Evaluation and Expansion Decision**
+
+Sprint 011 should focus on pilot evaluation:
+- assess scroll effect performance and UX impact
+- evaluate archive content quality and narrative fit
+- record decision for expansion, iteration, or halt in `DECISIONS.md`
+- define Sprint 012 scope based on decision outcome

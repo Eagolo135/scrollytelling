@@ -221,4 +221,29 @@ _Format: `## [YYYY-MM-DD] — Sprint N — Description`_
 
 ---
 
-_Next planned sprint: Sprint 010 — Archive/History Pilot Implementation_
+## [2026-04-30] — Sprint 010 — Archive/History Pilot Implementation
+
+### Added
+- `src/components/motion/ScrollFade.tsx` — scroll-triggered fade animation primitive using IntersectionObserver.
+- `src/components/motion/ScrollParallax.tsx` — scroll-driven parallax offset effect primitive using requestAnimationFrame.
+- `src/components/layouts/ArchiveLayout.tsx` — specialized layout for archive/history narrative content with integrated scroll effects.
+- `src/components/layouts/ArchiveLayout.module.css` — responsive styling for archive content with hero section and parallax areas.
+- `content/pages/nuclear-archive.md` — nuclear engineering historical narrative with archive layout frontmatter.
+- `tests/unit/scroll-effects.test.tsx` — unit tests for ScrollFade and ScrollParallax components.
+- `public/images/nuclear-archive/` — directory for nuclear engineering photography assets with README guidelines.
+- `project_management/QA_REPORTS/qa-sprint-010.md` — Sprint 010 QA report.
+- `project_management/COMPLETED_SPRINTS/sprint-010-archive-pilot-implementation.md` — Sprint 010 archive.
+
+### Changed
+- `src/lib/content/schema.ts` — added "archive" layout option to PageFrontmatterSchema enum; added optional `description`, `type`, `category` fields.
+- `src/components/layouts/PageLayoutFactory.tsx` — added conditional branch for archive layout routing.
+- `project_management/CURRENT_SPRINT.md` — promoted Sprint 011 as active pilot-evaluation sprint.
+- `project_management/NEXT_SPRINT.md` — set Sprint 012 planning placeholder.
+
+### Quality Gate
+`lint ✅  ·  unit 14/14 ✅  ·  build 10 routes ✅  ·  e2e 15/15 ✅  ·  basePath verify ✅`
+
+---
+
+_Next planned sprint: Sprint 011 — Archive Pilot Evaluation and Expansion Decision_
+

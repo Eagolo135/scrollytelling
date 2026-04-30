@@ -1,53 +1,53 @@
-# NEXT SPRINT — Sprint 011: Pilot Evaluation and Expansion Decision
+# NEXT SPRINT — Sprint 012: Direction TBD (Post-Pilot Decision)
 
-_Planned start: after Sprint 010 completes_
+_Planned start: after Sprint 011 decision completes_
 
 ---
 
 ## Goal
 
-Evaluate pilot outcomes and decide whether to expand, iterate, or halt the archive/history track.
+Execute the post-pilot decision direction: continue archive expansion, iterate pilot, or resume standard development track.
 
 ---
 
 ## Scope
 
-- Assess pilot quality, user-value signal, and maintenance cost
-- Decide continuation strategy for archive/history direction
-- Capture follow-up scope with explicit constraints
-- Keep release/readiness guardrails intact
+_Scope will be determined by Sprint 011 pilot evaluation decision._
 
 ---
 
-## Out of Scope
+## Conditional Plans
 
-- Parallel activation of AI/search track
-- Major architecture rewrites
-- Unscoped feature expansion beyond pilot learnings
-- Backend-first pivots
+### If Archive Expansion Approved (Option A)
+- [ ] Design next archive sections (e.g., engineering case studies, historical milestones)
+- [ ] Integrate nuclear engineering photography assets
+- [ ] Extend scroll effects or visualization primitives if needed
+- [ ] Maintain markdown-first, static-export-safe discipline
+
+### If Archive Iteration Approved (Option B)
+- [ ] Implement specific refinements identified in pilot evaluation
+- [ ] Address performance issues or UX concerns from user feedback
+- [ ] Add asset integration or visualization extensions
+- [ ] Stabilize scroll effect components for production use
+
+### If Archive Phase Halted (Option C)
+- [ ] Resume priority features on standard development roadmap
+- [ ] Preserve archive code and tests for future reactivation
+- [ ] Shift focus to deferred features (if any) or next-priority track
+- [ ] Document archive/history deferral decision for future reconsideration
 
 ---
 
-## Tasks
+## Exit Criteria
 
-- [ ] Review pilot implementation outcomes and QA evidence
-- [ ] Record continuation/iteration decision in `DECISIONS.md`
-- [ ] Update `SPEC.md` and `PHASES.md` based on pilot outcome
-- [ ] Define Sprint 012 scope or close conditional path
-- [ ] Run full quality gate if additional implementation changes are introduced
+- Decision from Sprint 011 is implemented
+- All quality gates pass (lint, unit, build, e2e)
+- Static-export and basePath safety maintained
 
 ---
 
-## Files Likely Affected
-
-```
-content/pages/*
-src/components/layouts/*
-src/components/markdown/*
-src/components/visualization/*
-tests/unit/*.test.ts
-tests/browser/*.spec.ts
-project_management/CHANGELOG.md
+**Planned Start:** Immediately after Sprint 011 completion  
+**Target Duration:** 1-2 weeks depending on decision outcome
 project_management/QA_REPORTS/qa-sprint-011.md
 ```
 
