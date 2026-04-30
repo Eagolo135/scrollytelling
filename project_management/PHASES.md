@@ -176,7 +176,7 @@ Raise UX quality after the styling foundation and route cleanup are stable.
 
 ---
 
-## Phase 8: Testing, QA, and Deployment Readiness
+## Phase 8: Testing, QA, and Deployment Readiness ✅
 
 **Goal**
 Prepare the root project for maintainable release and handoff.
@@ -195,6 +195,7 @@ Prepare the root project for maintainable release and handoff.
 **Completion criteria**
 - Root git repository is initialized and points to the intended GitHub remote.
 - Docs, tests, deploy config, and release notes are aligned.
+- BasePath publish behavior is verified through a repeatable check.
 
 **Risks or unknowns**
 - Pages subpath behavior must still be validated after release configuration changes.

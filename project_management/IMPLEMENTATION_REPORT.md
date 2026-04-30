@@ -1,6 +1,6 @@
 # Implementation Report
 
-_Last updated: 2026-04-30 — after Sprint 006 polish and responsiveness pass_
+_Last updated: 2026-04-30 — after Sprint 007 release verification pass_
 
 ---
 
@@ -196,8 +196,8 @@ Active visualization styling is now CSS Module based.
 ## Testing and Quality State
 
 ### Unit tests
-- 12 tests passing in 6 files.
-- Coverage includes malformed frontmatter, missing-file handling, deterministic slug filtering/sorting, parser/schema/link contracts, and markdown asset existence checks.
+- 14 tests passing in 7 files.
+- Coverage includes malformed frontmatter, missing-file handling, deterministic slug filtering/sorting, parser/schema/link contracts, markdown asset existence checks, and URL-normalization regression checks.
 
 ### Browser tests
 - 15 tests passing.
@@ -216,22 +216,22 @@ Active visualization styling is now CSS Module based.
 ### Deployment
 - `next.config.ts` is correctly configured for static export and GitHub Pages subpath deployment.
 - `.github/workflows/deploy.yml` exists for GitHub Pages deployment.
+- `scripts/verify-basepath-output.mjs` provides a repeatable check for duplicated basePath tokens in exported HTML.
 
 ### Operational gaps
-- Deploy workflow hardening beyond the existing Pages setup is still pending.
+- Ongoing operational runbook consolidation is tracked for Sprint 008 stabilization.
 
 ---
 
 ## Main Drift Findings
 
-1. Deploy workflow hardening beyond the existing Pages setup is still pending final release verification.
-2. BasePath-focused publish verification still needs an explicit release confidence pass.
+1. Stabilization documentation for long-term update workflow is still pending.
 
 ---
 
 ## Recommended Active Sprint
 
-Sprint 007 should focus on release verification and publish confidence:
-- validate Pages/basePath assumptions end-to-end
-- verify route and asset behavior under production-like paths
-- capture final release QA evidence and operational notes
+Sprint 008 should focus on post-release stabilization:
+- consolidate maintenance runbook and update process notes
+- triage any residual findings from release verification
+- keep documentation and operational checks aligned with the stable baseline

@@ -164,4 +164,24 @@ _Format: `## [YYYY-MM-DD] — Sprint N — Description`_
 
 ---
 
-_Next planned sprint: Sprint 007 — Release Verification and Publish Confidence_
+## [2026-04-30] — Sprint 007 — Release Verification and Publish Confidence
+
+### Added
+- `scripts/verify-basepath-output.mjs` — verifies static-export HTML contains expected basePath prefixes and no duplicated basePath tokens.
+- `tests/unit/site-config.test.ts` — regression coverage for internal URL normalization behavior.
+- `project_management/QA_REPORTS/qa-sprint-007.md` — Sprint 007 QA report.
+- `project_management/COMPLETED_SPRINTS/sprint-007-release-verification-and-publish-confidence.md` — Sprint 007 archive.
+
+### Changed
+- `src/lib/site-config.ts` — fixed internal route normalization to avoid basePath double-prefix behavior under `next/link`.
+- `package.json` — added `verify:basepath` script.
+- `README.md` — added release-verification command sequence and basePath check instructions.
+- `project_management/CURRENT_SPRINT.md` — promoted Sprint 008.
+- `project_management/NEXT_SPRINT.md` — promoted Sprint 009 planning target.
+
+### Quality Gate
+`lint ✅  ·  unit 14/14 ✅  ·  build 9 routes ✅  ·  e2e 15/15 ✅  ·  basePath verify ✅`
+
+---
+
+_Next planned sprint: Sprint 008 — Post-Release Stabilization and Backlog Grooming_

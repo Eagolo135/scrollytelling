@@ -73,6 +73,31 @@ The site is configured for static export in `next.config.ts` and is intended to 
 - `next build` emits static output to `out/` for Pages artifact upload.
 - Internal links and image URLs should stay root-relative so basePath rewriting remains predictable.
 
+### Release verification
+
+Run this before publish confidence sign-off:
+
+```bash
+npm run lint
+npm run test
+npm run build
+npm run test:e2e
+```
+
+Run this to verify production-like basePath output safety:
+
+```bash
+NEXT_PUBLIC_BASE_PATH=/scrollytelling npm run build
+npm run verify:basepath -- /scrollytelling
+```
+
+PowerShell equivalent:
+
+```powershell
+$env:NEXT_PUBLIC_BASE_PATH='/scrollytelling'; npm run build
+npm run verify:basepath -- /scrollytelling
+```
+
 ## Current status
 
 Sprint 005 (Content Pipeline Hardening) is complete. Sprint 006 is focused on UI polish, responsiveness, accessibility checks, and deployment-readiness verification.

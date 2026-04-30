@@ -201,3 +201,25 @@ Each entry:
 **Rationale:** This favors predictable interaction and readability while preserving access to all top-level routes.  
 **Impact:** `src/components/ui/SiteHeader.module.css` now uses no-wrap mobile nav behavior, overflow handling, and explicit focus-visible outlines.  
 **Linked:** Phase 7, Sprint 006
+
+---
+
+## 2026-04-30 — Sprint 007 removes manual basePath prefixing from next/link routes
+
+**Category:** Architecture  
+**Context:** Production-like builds revealed markdown-rendered internal links were emitted as `/scrollytelling/scrollytelling/...`, indicating duplicated basePath handling.  
+**Decision:** Keep internal route normalization base-path agnostic and let `next/link` apply configured `basePath` automatically.  
+**Rationale:** Avoids duplicated prefixes in static output while preserving correct behavior for local and Pages deployments.  
+**Impact:** `src/lib/site-config.ts` now normalizes internal paths without prepending environment basePath values.  
+**Linked:** Phase 8, Sprint 007
+
+---
+
+## 2026-04-30 — Sprint 007 introduces a dedicated static-output basePath verifier
+
+**Category:** Process  
+**Context:** BasePath correctness was previously a manual inspection step and vulnerable to regression.  
+**Decision:** Add `scripts/verify-basepath-output.mjs` and expose it through `npm run verify:basepath`.  
+**Rationale:** Provides a repeatable, low-cost deployment confidence check before publish tagging.  
+**Impact:** Release verification can now automatically fail on duplicated basePath tokens in exported HTML.  
+**Linked:** Phase 8, Sprint 007

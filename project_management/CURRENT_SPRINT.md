@@ -1,40 +1,40 @@
-# CURRENT SPRINT — Sprint 007: Release Verification and Publish Confidence
+# CURRENT SPRINT — Sprint 008: Post-Release Stabilization and Backlog Grooming
 
-_Status: READY — promoted after Sprint 006 completion on 2026-04-30_
+_Status: READY — promoted after Sprint 007 completion on 2026-04-30_
 
 ---
 
 ## Goal
 
-Run a release-candidate verification pass so deployment and long-term maintenance are stable at publish time.
+Consolidate lessons from release verification, document stable operating practices, and prioritize the next cycle without widening scope.
 
 ---
 
 ## Scope
 
-- Re-validate deployment assumptions for GitHub Pages subpath hosting
-- Verify static assets and internal links under production basePath
-- Finalize operational docs for future updates
-- Capture release QA evidence in project management artifacts
+- Triage any issues discovered during release verification
+- Capture maintenance runbooks for routine content and QA updates
+- Groom backlog options against v1 constraints
+- Preserve a stable baseline before any conditional phase expansion
 
 ---
 
 ## Out of Scope
 
-- New route or feature development
-- Motion-system redesign
-- Content model changes
-- AI/search/backend expansion
+- New feature launches
+- Route architecture changes
+- Styling-system rewrites
+- AI/search/backend implementation
 
 ---
 
 ## Tasks
 
-- [ ] Validate `next.config.ts` and deploy workflow assumptions against GitHub Pages requirements
-- [ ] Verify basePath-safe links and image references across the published route set
-- [ ] Finalize release-facing README and operational update notes
-- [ ] Produce final QA report for publish readiness
-- [ ] Run full quality gate before release tagging
+- [ ] Triage and resolve any release-verification findings
+- [ ] Create a concise maintenance checklist for content updates
+- [ ] Review and prioritize roadmap candidates for the next implementation cycle
+- [ ] Update project-management docs to reflect the stabilized baseline
+- [ ] Run full quality gate after stabilization updates
 
 ---
 
@@ -49,16 +49,16 @@ README.md
 .github/workflows/deploy.yml
 tests/browser/*.spec.ts
 project_management/CHANGELOG.md
-project_management/QA_REPORTS/qa-sprint-007.md
+project_management/QA_REPORTS/qa-sprint-008.md
 ```
 
 ---
 
 ## Acceptance Criteria
 
-- [ ] Deployment configuration is verified against target hosting assumptions
-- [ ] Core routes and assets behave correctly under basePath expectations
-- [ ] Release docs are aligned with current implementation and update workflow
+- [ ] Stabilization findings are either fixed or explicitly documented
+- [ ] Maintenance runbook is present and accurate
+- [ ] Backlog priorities are documented without scope expansion
 - [ ] Full quality gate passes
 
 ---
@@ -66,14 +66,14 @@ project_management/QA_REPORTS/qa-sprint-007.md
 ## Testing / QA Steps
 
 1. Run the full quality gate.
-2. Verify route and asset behavior using production-like basePath settings.
-3. Confirm reduced-motion and keyboard behavior on key routes.
-4. Record release QA outcomes in `project_management/QA_REPORTS/`.
+2. Re-check critical routes and markdown content update flow.
+3. Confirm maintenance checklist accuracy by dry-running one update scenario.
+4. Record stabilization QA outcomes in `project_management/QA_REPORTS/`.
 
 ---
 
 ## Drift Check
 
-- Follows `PHASES.md` Phase 8 release-readiness goals.
-- Depends on Sprint 006 completing visual polish and responsiveness checks first.
-- Keeps scope on verification and documentation rather than net-new product surface.
+- Follows `PHASES.md` Phase 8 operational hardening goals.
+- Depends on Sprint 007 completing release verification first.
+- Keeps the project in a stable, portfolio-focused scope envelope.
