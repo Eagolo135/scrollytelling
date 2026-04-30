@@ -1,79 +1,78 @@
-# NEXT SPRINT — Sprint 010: Scoped Implementation Kickoff
+# NEXT SPRINT — Sprint 011: Pilot Evaluation and Expansion Decision
 
-_Planned start: after Sprint 009 completes_
+_Planned start: after Sprint 010 completes_
 
 ---
 
 ## Goal
 
-Begin a tightly scoped implementation sprint based on the explicit decision output from Sprint 009.
+Evaluate pilot outcomes and decide whether to expand, iterate, or halt the archive/history track.
 
 ---
 
 ## Scope
 
-- Execute only the approved scope from Sprint 009
-- Keep implementation changes measurable and test-backed
-- Update docs and QA evidence in lockstep with code
-- Preserve static-export compatibility and existing route stability
+- Assess pilot quality, user-value signal, and maintenance cost
+- Decide continuation strategy for archive/history direction
+- Capture follow-up scope with explicit constraints
+- Keep release/readiness guardrails intact
 
 ---
 
 ## Out of Scope
 
-- Any unapproved roadmap branch
-- Broad architecture rewrites
-- Backend commitments that violate current static constraints
-- Cross-cutting refactors without sprint-level rationale
+- Parallel activation of AI/search track
+- Major architecture rewrites
+- Unscoped feature expansion beyond pilot learnings
+- Backend-first pivots
 
 ---
 
 ## Tasks
 
-- [ ] Implement the approved sprint scope from decision-gate outputs
-- [ ] Add or update tests for all changed behavior
-- [ ] Validate basePath/release safety if route or link behavior changes
-- [ ] Update implementation and sprint documentation
-- [ ] Run full quality gate before sprint closure
+- [ ] Review pilot implementation outcomes and QA evidence
+- [ ] Record continuation/iteration decision in `DECISIONS.md`
+- [ ] Update `SPEC.md` and `PHASES.md` based on pilot outcome
+- [ ] Define Sprint 012 scope or close conditional path
+- [ ] Run full quality gate if additional implementation changes are introduced
 
 ---
 
 ## Files Likely Affected
 
 ```
+content/pages/*
 src/components/layouts/*
-src/components/motion/*
-src/app/*
-next.config.ts
-README.md
-.github/workflows/deploy.yml
+src/components/markdown/*
+src/components/visualization/*
+tests/unit/*.test.ts
 tests/browser/*.spec.ts
 project_management/CHANGELOG.md
-project_management/QA_REPORTS/qa-sprint-010.md
+project_management/QA_REPORTS/qa-sprint-011.md
 ```
 
 ---
 
 ## Acceptance Criteria
 
-- [ ] Approved scope is implemented without uncontrolled expansion
-- [ ] Test coverage reflects changed behavior
-- [ ] Release/readiness constraints remain satisfied
-- [ ] Full quality gate passes
+- [ ] Pilot outcome decision is explicitly documented
+- [ ] Spec/phase docs accurately reflect continuation choice
+- [ ] Next-sprint scope is clear and constraint-aware
+- [ ] Quality gate remains green if code changes are made
 
 ---
 
 ## Testing / QA Steps
 
-1. Run the full quality gate.
-2. Validate changed user flows manually where needed.
-3. Re-run basePath verification if navigation/output behavior changed.
-4. Record implementation QA outcomes in `project_management/QA_REPORTS/`.
+1. Validate pilot behaviors and any changed user flows.
+2. Run full quality gate if implementation files change.
+3. Re-run basePath verification if route/link behavior changed.
+4. Record evaluation QA outcomes in `project_management/QA_REPORTS/`.
 
 ---
 
 ## Drift Check
 
-- Depends on Sprint 009 decision-gate outputs.
-- Must stay aligned with `SPEC.md` and approved scope boundaries.
-- Preserves the stable baseline while allowing controlled evolution.
+- Depends on Sprint 010 pilot outcomes.
+- Keeps continuation decisions explicit rather than implicit.
+- Maintains static-export and scope-discipline guardrails.

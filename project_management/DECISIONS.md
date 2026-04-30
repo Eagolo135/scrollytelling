@@ -234,3 +234,14 @@ Each entry:
 **Rationale:** This reduces process drift, clarifies update safety checks, and preserves scope discipline between implementation sprints.  
 **Impact:** Sprint closure and future updates now have a documented, reusable operational flow; no open release-verification blockers were found.  
 **Linked:** Phase 8, Sprint 008
+
+---
+
+## 2026-04-30 — Sprint 009 approves archive/history pilot and defers AI/search activation
+
+**Category:** Scope  
+**Context:** Sprint 009 required a conditional roadmap decision under static-export and portfolio-focus constraints. Options evaluated included AI/search exploration, archive/history storytelling, and continued docs-only stabilization.  
+**Decision:** Approve a scoped archive/history storytelling pilot for Sprint 010 and explicitly defer AI/search implementation.  
+**Rationale:** Archive/history content can be delivered with existing markdown and visualization architecture, providing meaningful portfolio value with lower delivery risk than AI/search expansion.  
+**Impact:** Sprint 010 scope should target one controlled archive/history increment with no backend expansion and no AI/search implementation.  
+**Linked:** Phase 6 (conditional), Sprint 009

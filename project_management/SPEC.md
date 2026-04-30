@@ -1,6 +1,6 @@
 # SPEC — Nuclear Engineering Scrollytelling Portfolio
 
-_Last updated: 2026-04-30 — after Sprint 008 stabilization pass_
+_Last updated: 2026-04-30 — after Sprint 009 decision gate_
 
 > `SPEC.md` is the single source of truth for the root `scrollytelling/` project. `framework/` is reference-only and must not be edited.
 
@@ -142,6 +142,22 @@ Rule: do not introduce new major shared components without documenting the need 
   2. a spec update here
   3. a dedicated phase and sprint
 
+Sprint 009 decision outcome:
+- AI/search implementation remains deferred.
+- No AI/search implementation is approved for Sprint 010.
+
+---
+
+## Approved Next Direction
+
+Sprint 009 approved a scoped **Archive/History storytelling pilot** for Sprint 010.
+
+Pilot guardrails:
+- Keep markdown-first content authoring.
+- Preserve static-export behavior.
+- Avoid backend/API additions.
+- Limit scope to one controlled archive/history increment.
+
 ---
 
 ## Deployment Requirements
@@ -196,6 +212,7 @@ Rule: do not introduce new major shared components without documenting the need 
 - [x] Deploy pipeline and root git setup are aligned with the target GitHub repository.
 - [x] BasePath publish behavior is verified with a repeatable output check.
 - [x] Maintenance runbook and roadmap-priority guidance are documented for stable operations.
+- [x] Conditional roadmap decision is documented, with Sprint 010 direction approved.
 - [x] `npm run lint` passes.
 - [x] `npm run test` passes.
 - [x] `npm run build` passes.

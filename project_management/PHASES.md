@@ -129,7 +129,7 @@ Support search or AI only if explicitly approved and still compatible with stati
 
 ---
 
-## Phase 6: Archive / History System (Conditional)
+## Phase 6: Archive / History System (Conditional, Approved for Sprint 010 Pilot)
 
 **Goal**
 Add archival or historical storytelling only if it materially improves the portfolio.
@@ -144,9 +144,13 @@ Add archival or historical storytelling only if it materially improves the portf
 
 **Completion criteria**
 - New historical content has a clear portfolio purpose and is documented in spec.
+- Sprint 009 decision gate approves implementation scope before execution.
 
 **Risks or unknowns**
 - Could dilute the main portfolio narrative if added without strong scope control.
+
+Decision status:
+- Activated for a scoped pilot in Sprint 010 by Sprint 009 decision gate.
 
 ---
 

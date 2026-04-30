@@ -202,4 +202,23 @@ _Format: `## [YYYY-MM-DD] — Sprint N — Description`_
 
 ---
 
-_Next planned sprint: Sprint 009 — Conditional Roadmap Decision Gate_
+## [2026-04-30] — Sprint 009 — Conditional Roadmap Decision Gate
+
+### Added
+- `project_management/DECISION_MATRIX_SPRINT_009.md` — option scoring and constraints-based decision matrix.
+- `project_management/QA_REPORTS/qa-sprint-009.md` — Sprint 009 QA report.
+- `project_management/COMPLETED_SPRINTS/sprint-009-conditional-roadmap-decision-gate.md` — Sprint 009 archive.
+
+### Changed
+- `project_management/DECISIONS.md` — approved archive/history pilot for Sprint 010 and deferred AI/search implementation.
+- `project_management/SPEC.md` — documented approved next direction and guardrails for Sprint 010.
+- `project_management/PHASES.md` — marked Phase 6 as approved for a scoped Sprint 010 pilot.
+- `project_management/CURRENT_SPRINT.md` — promoted Sprint 010 as active implementation sprint.
+- `project_management/NEXT_SPRINT.md` — set Sprint 011 planning placeholder.
+
+### Quality Gate
+`docs consistency ✅  ·  lint ✅  ·  unit 14/14 ✅  ·  build 9 routes ✅  ·  e2e 15/15 ✅`
+
+---
+
+_Next planned sprint: Sprint 010 — Archive/History Pilot Implementation_

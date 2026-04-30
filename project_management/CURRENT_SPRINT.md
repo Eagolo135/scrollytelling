@@ -1,79 +1,80 @@
-# CURRENT SPRINT — Sprint 009: Conditional Roadmap Decision Gate
+# CURRENT SPRINT — Sprint 010: Archive/History Pilot Implementation
 
-_Status: READY — promoted after Sprint 008 completion on 2026-04-30_
+_Status: READY — promoted after Sprint 009 completion on 2026-04-30_
 
 ---
 
 ## Goal
 
-Decide the next major scope direction using documented tradeoffs while preserving the stable v1 baseline.
+Implement a constrained archive/history storytelling increment that improves portfolio narrative depth while preserving static-export stability.
 
 ---
 
 ## Scope
 
-- Evaluate roadmap options against static-export constraints
-- Decide whether to activate any conditional phases (AI/search/archive)
-- Document acceptance/rejection rationale in project-management artifacts
-- Prepare a focused implementation brief for the chosen path
+- Add one archive/history-focused content route or section using the existing markdown pipeline
+- Reuse existing visualization primitives where possible, extending minimally only if needed
+- Keep route and asset behavior basePath-safe and statically exportable
+- Add or update tests for any introduced parsing/render behavior
 
 ---
 
 ## Out of Scope
 
-- Immediate implementation of conditional-phase features
-- Breaking content model or routing changes
-- Styling-system overhaul
-- Unscoped experimental work
+- AI/search implementation
+- Backend services or runtime APIs
+- Broad architecture rewrites
+- Multi-route expansion beyond the scoped pilot
 
 ---
 
 ## Tasks
 
-- [ ] Assemble candidate roadmap options and constraints
-- [ ] Record decision rationale in `DECISIONS.md`
-- [ ] Update `SPEC.md` and `PHASES.md` based on accepted direction
-- [ ] Draft the next implementation sprint scope with explicit acceptance criteria
-- [ ] Run full quality gate if any code or test changes are introduced
+- [ ] Design the pilot archive/history content slice and add markdown source
+- [ ] Implement minimal layout/render updates required for the pilot
+- [ ] Add/update tests covering new behavior
+- [ ] Verify basePath and static-export safety for new content paths
+- [ ] Run full quality gate and record sprint QA
 
 ---
 
 ## Files Likely Affected
 
 ```
+content/pages/*
 src/components/layouts/*
-src/components/motion/*
-src/app/*
-next.config.ts
-README.md
-.github/workflows/deploy.yml
+src/components/markdown/*
+src/components/visualization/*
+src/app/[...slug]/page.tsx
+tests/unit/*.test.ts
 tests/browser/*.spec.ts
 project_management/CHANGELOG.md
-project_management/QA_REPORTS/qa-sprint-009.md
+project_management/QA_REPORTS/qa-sprint-010.md
 ```
 
 ---
 
 ## Acceptance Criteria
 
-- [ ] Next-direction decision is documented with rationale and constraints
-- [ ] Spec/phase docs are aligned with the chosen direction
-- [ ] A clear, scoped implementation sprint is prepared
-- [ ] Quality gate remains green if implementation files changed
+- [ ] Archive/history pilot content is published through the existing markdown route pipeline
+- [ ] Any renderer/layout extensions are minimal and test-covered
+- [ ] Static export and basePath behavior remain valid
+- [ ] Full quality gate passes
 
 ---
 
 ## Testing / QA Steps
 
-1. Run the full quality gate if code paths are modified.
-2. Validate that docs and decisions are internally consistent.
-3. Confirm conditional-phase constraints remain explicit before implementation.
-4. Record decision-gate outcomes in `project_management/QA_REPORTS/`.
+1. Run `npm run lint`.
+2. Run `npm run test`.
+3. Run `npm run build`.
+4. Run `npm run test:e2e`.
+5. If new navigation/path behavior is introduced, run basePath verification with `verify:basepath`.
 
 ---
 
 ## Drift Check
 
-- Follows the conditional-phase gating requirements in `SPEC.md`.
-- Depends on Sprint 008 stabilization outputs first.
-- Prevents ad-hoc scope creep by requiring explicit decision records.
+- Executes the Sprint 009-approved conditional phase path.
+- Keeps implementation tightly scoped to a single pilot increment.
+- Preserves static-export and portfolio-focus constraints.

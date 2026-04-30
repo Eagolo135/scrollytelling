@@ -1,6 +1,6 @@
 # Implementation Report
 
-_Last updated: 2026-04-30 — after Sprint 008 stabilization pass_
+_Last updated: 2026-04-30 — after Sprint 009 decision gate_
 
 ---
 
@@ -223,19 +223,19 @@ Active visualization styling is now CSS Module based.
 - `project_management/ROADMAP_PRIORITIES.md` captures constrained next-cycle prioritization without broadening current scope.
 
 ### Operational gaps
-- Decision-gate outcomes for conditional roadmap phases are pending in Sprint 009.
+- Sprint 010 archive/history pilot implementation is pending execution.
 
 ---
 
 ## Main Drift Findings
 
-1. Conditional roadmap activation remains undecided and is intentionally deferred to Sprint 009.
+1. Archive/history pilot scope needs careful control to avoid narrative dilution or route sprawl.
 
 ---
 
 ## Recommended Active Sprint
 
-Sprint 009 should focus on conditional roadmap decision-gating:
-- evaluate options against static-export constraints
-- record explicit acceptance/rejection rationale
-- prepare the next scoped implementation sprint without ad-hoc expansion
+Sprint 010 should focus on archive/history pilot implementation:
+- deliver one scoped archive/history increment
+- keep markdown-first and static-export compatible behavior
+- add tests and QA evidence for any new rendering/content path behavior
