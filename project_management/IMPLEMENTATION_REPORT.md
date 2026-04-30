@@ -1,6 +1,6 @@
 # Implementation Report
 
-_Last updated: 2026-04-30 — after Sprint 007 release verification pass_
+_Last updated: 2026-04-30 — after Sprint 008 stabilization pass_
 
 ---
 
@@ -218,20 +218,24 @@ Active visualization styling is now CSS Module based.
 - `.github/workflows/deploy.yml` exists for GitHub Pages deployment.
 - `scripts/verify-basepath-output.mjs` provides a repeatable check for duplicated basePath tokens in exported HTML.
 
+### Maintenance and operations
+- `project_management/MAINTENANCE_RUNBOOK.md` now defines routine update and release-check procedures.
+- `project_management/ROADMAP_PRIORITIES.md` captures constrained next-cycle prioritization without broadening current scope.
+
 ### Operational gaps
-- Ongoing operational runbook consolidation is tracked for Sprint 008 stabilization.
+- Decision-gate outcomes for conditional roadmap phases are pending in Sprint 009.
 
 ---
 
 ## Main Drift Findings
 
-1. Stabilization documentation for long-term update workflow is still pending.
+1. Conditional roadmap activation remains undecided and is intentionally deferred to Sprint 009.
 
 ---
 
 ## Recommended Active Sprint
 
-Sprint 008 should focus on post-release stabilization:
-- consolidate maintenance runbook and update process notes
-- triage any residual findings from release verification
-- keep documentation and operational checks aligned with the stable baseline
+Sprint 009 should focus on conditional roadmap decision-gating:
+- evaluate options against static-export constraints
+- record explicit acceptance/rejection rationale
+- prepare the next scoped implementation sprint without ad-hoc expansion

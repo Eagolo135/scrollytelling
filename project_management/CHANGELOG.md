@@ -184,4 +184,22 @@ _Format: `## [YYYY-MM-DD] — Sprint N — Description`_
 
 ---
 
-_Next planned sprint: Sprint 008 — Post-Release Stabilization and Backlog Grooming_
+## [2026-04-30] — Sprint 008 — Post-Release Stabilization and Backlog Grooming
+
+### Added
+- `project_management/MAINTENANCE_RUNBOOK.md` — standardized procedures for content updates, release checks, and documentation sync.
+- `project_management/ROADMAP_PRIORITIES.md` — prioritized next-cycle options under static-export and scope constraints.
+- `project_management/QA_REPORTS/qa-sprint-008.md` — Sprint 008 QA report.
+- `project_management/COMPLETED_SPRINTS/sprint-008-post-release-stabilization-and-backlog-grooming.md` — Sprint 008 archive.
+
+### Changed
+- `project_management/CURRENT_SPRINT.md` — promoted Sprint 009 as the active decision-gate sprint.
+- `project_management/NEXT_SPRINT.md` — set Sprint 010 implementation kickoff placeholder.
+- `README.md` and project-management status docs remain aligned with release-verification baseline and maintenance workflow.
+
+### Quality Gate
+`lint ✅  ·  unit 14/14 ✅  ·  build 9 routes ✅  ·  e2e 15/15 ✅`
+
+---
+
+_Next planned sprint: Sprint 009 — Conditional Roadmap Decision Gate_

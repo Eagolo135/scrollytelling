@@ -1,40 +1,40 @@
-# NEXT SPRINT — Sprint 009: Conditional Roadmap Decision Gate
+# NEXT SPRINT — Sprint 010: Scoped Implementation Kickoff
 
-_Planned start: after Sprint 008 completes_
+_Planned start: after Sprint 009 completes_
 
 ---
 
 ## Goal
 
-Decide the next major scope direction using documented tradeoffs while preserving the stable v1 baseline.
+Begin a tightly scoped implementation sprint based on the explicit decision output from Sprint 009.
 
 ---
 
 ## Scope
 
-- Evaluate roadmap options against static-export constraints
-- Decide whether to activate any conditional phases (AI/search/archive)
-- Document acceptance/rejection rationale in project-management artifacts
-- Prepare a focused implementation brief for the chosen path
+- Execute only the approved scope from Sprint 009
+- Keep implementation changes measurable and test-backed
+- Update docs and QA evidence in lockstep with code
+- Preserve static-export compatibility and existing route stability
 
 ---
 
 ## Out of Scope
 
-- Immediate implementation of conditional-phase features
-- Breaking content model or routing changes
-- Styling-system overhaul
-- Unscoped experimental work
+- Any unapproved roadmap branch
+- Broad architecture rewrites
+- Backend commitments that violate current static constraints
+- Cross-cutting refactors without sprint-level rationale
 
 ---
 
 ## Tasks
 
-- [ ] Assemble candidate roadmap options and constraints
-- [ ] Record decision rationale in `DECISIONS.md`
-- [ ] Update `SPEC.md` and `PHASES.md` based on accepted direction
-- [ ] Draft the next implementation sprint scope with explicit acceptance criteria
-- [ ] Run full quality gate if any code or test changes are introduced
+- [ ] Implement the approved sprint scope from decision-gate outputs
+- [ ] Add or update tests for all changed behavior
+- [ ] Validate basePath/release safety if route or link behavior changes
+- [ ] Update implementation and sprint documentation
+- [ ] Run full quality gate before sprint closure
 
 ---
 
@@ -49,31 +49,31 @@ README.md
 .github/workflows/deploy.yml
 tests/browser/*.spec.ts
 project_management/CHANGELOG.md
-project_management/QA_REPORTS/qa-sprint-009.md
+project_management/QA_REPORTS/qa-sprint-010.md
 ```
 
 ---
 
 ## Acceptance Criteria
 
-- [ ] Next-direction decision is documented with rationale and constraints
-- [ ] Spec/phase docs are aligned with the chosen direction
-- [ ] A clear, scoped implementation sprint is prepared
-- [ ] Quality gate remains green if implementation files changed
+- [ ] Approved scope is implemented without uncontrolled expansion
+- [ ] Test coverage reflects changed behavior
+- [ ] Release/readiness constraints remain satisfied
+- [ ] Full quality gate passes
 
 ---
 
 ## Testing / QA Steps
 
-1. Run the full quality gate if code paths are modified.
-2. Validate that docs and decisions are internally consistent.
-3. Confirm conditional-phase constraints remain explicit before implementation.
-4. Record decision-gate outcomes in `project_management/QA_REPORTS/`.
+1. Run the full quality gate.
+2. Validate changed user flows manually where needed.
+3. Re-run basePath verification if navigation/output behavior changed.
+4. Record implementation QA outcomes in `project_management/QA_REPORTS/`.
 
 ---
 
 ## Drift Check
 
-- Follows the conditional-phase gating requirements in `SPEC.md`.
-- Depends on Sprint 008 stabilization outputs first.
-- Prevents ad-hoc scope creep by requiring explicit decision records.
+- Depends on Sprint 009 decision-gate outputs.
+- Must stay aligned with `SPEC.md` and approved scope boundaries.
+- Preserves the stable baseline while allowing controlled evolution.

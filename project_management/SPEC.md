@@ -1,6 +1,6 @@
 # SPEC — Nuclear Engineering Scrollytelling Portfolio
 
-_Last updated: 2026-04-30 — after Sprint 007 release verification pass_
+_Last updated: 2026-04-30 — after Sprint 008 stabilization pass_
 
 > `SPEC.md` is the single source of truth for the root `scrollytelling/` project. `framework/` is reference-only and must not be edited.
 
@@ -195,6 +195,7 @@ Rule: do not introduce new major shared components without documenting the need 
 - [x] Reduced-motion and core keyboard navigation behavior are covered by browser checks.
 - [x] Deploy pipeline and root git setup are aligned with the target GitHub repository.
 - [x] BasePath publish behavior is verified with a repeatable output check.
+- [x] Maintenance runbook and roadmap-priority guidance are documented for stable operations.
 - [x] `npm run lint` passes.
 - [x] `npm run test` passes.
 - [x] `npm run build` passes.

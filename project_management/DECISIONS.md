@@ -223,3 +223,14 @@ Each entry:
 **Rationale:** Provides a repeatable, low-cost deployment confidence check before publish tagging.  
 **Impact:** Release verification can now automatically fail on duplicated basePath tokens in exported HTML.  
 **Linked:** Phase 8, Sprint 007
+
+---
+
+## 2026-04-30 — Sprint 008 establishes maintenance runbook as operational baseline
+
+**Category:** Process  
+**Context:** Release verification is complete, but repeatable update and handoff procedures needed an explicit operational contract.  
+**Decision:** Adopt `project_management/MAINTENANCE_RUNBOOK.md` and `project_management/ROADMAP_PRIORITIES.md` as the baseline stabilization artifacts for routine updates and next-cycle planning.  
+**Rationale:** This reduces process drift, clarifies update safety checks, and preserves scope discipline between implementation sprints.  
+**Impact:** Sprint closure and future updates now have a documented, reusable operational flow; no open release-verification blockers were found.  
+**Linked:** Phase 8, Sprint 008
