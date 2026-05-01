@@ -3,6 +3,7 @@
 A statically exported Next.js portfolio site for a nuclear engineer, built as a scrollytelling experience with markdown-authored content, scroll-linked presentation slides, and supporting project and research pages.
 
 - Repo: https://github.com/Eagolo135/scrollytelling
+- Live Site: https://eagolo135.github.io/scrollytelling/
 - Stack: Next.js 16 App Router, React 19, TypeScript, framer-motion, gray-matter, Zod, CSS Modules
 - Deployment target: GitHub Pages
 
